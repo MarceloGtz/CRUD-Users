@@ -1,7 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import { Col, Form, Row, Button, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import './ModalComponent.css';
 
 const ModalComponent = () => {
   const [show, setShow] = useState(false);
@@ -19,10 +20,16 @@ const ModalComponent = () => {
 
   return (
     <>
-      <Button variant='primary' onClick={handleShow}>
-        <i className='fa-solid fa-user-plus'></i>
-        <span> Create new user</span>
-      </Button>
+      <div className='main'>
+        <h1>
+          <i className='fa-solid fa-users'></i> <span> Users</span>
+        </h1>
+
+        <Button variant='primary' onClick={handleShow}>
+          <i className='fa-solid fa-user-plus'></i>
+          <span> Create user</span>
+        </Button>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -84,7 +91,7 @@ const ModalComponent = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant='primary'
+            variant='success'
             type='submit'
             onClick={handleSubmit(submit)}
           >

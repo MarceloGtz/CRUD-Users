@@ -1,8 +1,10 @@
 import ModalComponent from './components/ModalComponent';
-import './App.css';
-import { useEffect, useState } from 'react';
+import UsersList from './components/UsersList';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [usersList, setUsersList] = useState([]);
@@ -10,44 +12,14 @@ const App = () => {
   useEffect(() => {
     axios
       .get('https://users-crud1.herokuapp.com/users/')
-      .then(res => setUsersList(res.data))
-      .finally(() => console.log('Response Finalized'));
+      .then(res => setUsersList(res.data));
   }, []);
 
-  console.log('Users List: ', usersList);
-
   return (
-    <div className='App'>
-      {/* MODAL COMPONENT */}
-      <ModalComponent />
-
-      {/* USERS LIST */}
-      <section>
-        <ul>
-          {usersList.map(user => (
-            <li key={user.id}>
-              <div>
-                <h3>
-                  {user.first_name} {user.last_name}
-                </h3>
-                <p>Correo:</p>
-                <p>{user.email}</p>
-                <p>Birthday:</p>
-                <p>{user.birthday}</p>
-              </div>
-              <div>
-                <Button variant='primary'>
-                  <i className='fa-solid fa-pencil'></i>
-                </Button>
-                <Button variant='danger'>
-                  <i className='fa-solid fa-trash-can'></i>
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
+    <Container className='mt-3'>
+      <ModalComponent className='mt-3' />
+      <UsersList usersList={usersList} />
+    </Container>
   );
 };
 
