@@ -1,0 +1,23 @@
+.UsersList__Button {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.UsersList__Button Button {
+  border: 1px solid #bbbbbb;
+  cursor: pointer;
+}
+
+.Card__Subtitle {
+  color: gray;
+}
+
+.card-body {
+  cursor: default;
+  transition: box-shadow 300ms ease-out;
+}
+
+.card-body:hover {
+  box-shadow: 0rem 8px 10px rgba(0, 0, 0, 0.3);
+}

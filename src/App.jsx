@@ -17,7 +17,8 @@ const App = () => {
 
   return (
     <Container className='mt-3'>
-      <ModalComponent className='mt-3' />
+      <ModalComponent />
+      <br />
       <UsersList usersList={usersList} />
     </Container>
   );

@@ -33,7 +33,7 @@ const ModalComponent = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>New User</Modal.Title>
+          <Modal.Title>New User Form</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ const ModalComponent = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant='success'
+            variant='primary'
             type='submit'
             onClick={handleSubmit(submit)}
           >
